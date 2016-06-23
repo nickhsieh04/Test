@@ -175,6 +175,5 @@ E:\測試專案\GitTest\WebDemo\bin\Microsoft.Owin.Security.Google.xml
 E:\測試專案\GitTest\WebDemo\bin\Microsoft.Owin.Security.Twitter.xml
 E:\測試專案\GitTest\WebDemo\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\測試專案\GitTest\WebDemo\bin\System.Web.Http.Owin.xml
-E:\測試專案\GitTest\WebDemo\obj\Debug\WebDemo.csprojResolveAssemblyReference.cache
 E:\測試專案\GitTest\WebDemo\obj\Debug\WebDemo.dll
 E:\測試專案\GitTest\WebDemo\obj\Debug\WebDemo.pdb

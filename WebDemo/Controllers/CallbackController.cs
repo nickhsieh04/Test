@@ -16,14 +16,24 @@ namespace WebDemo.Controllers
         [Route("Demo")]
         public Dictionary<string, string> Get()
         {
-            IntoDB("Test @ " + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
+            try
+            {
+                IntoDB("Test @ " + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
 
-            var result = new Dictionary<string, string>()
+                var result = new Dictionary<string, string>()
             {
                 { "001", "Banana" },
                 { "002", "Apple" }
             };
-            return result;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return new Dictionary<string, string>()
+                {
+                    { "error", ex.ToString() }
+                };
+            }
         }
 
         public async Task<HttpResponseMessage> Post()

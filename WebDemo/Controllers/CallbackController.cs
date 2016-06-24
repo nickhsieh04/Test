@@ -91,7 +91,7 @@ namespace WebDemo.Controllers
             string connectionstring = "Server=46ee7849-06f9-4996-9e33-a62f002a09fa.sqlserver.sequelizer.com;Database=db46ee784906f949969e33a62f002a09fa;User ID=qaryukkuimzqcwoc;Password=s6qpoVU8RWLjY8FPGbFpWpfPsxNDCrxEfUt6Z8y63k2KPXjqys4qFHWcZJ6YgpDz;";
 
             connectionstring = "Data Source=46ee7849-06f9-4996-9e33-a62f002a09fa.sqlserver.sequelizer.com;" +
-                "Initial Catelog=db46ee784906f949969e33a62f002a09fa;" +
+                "Initial Catalog=db46ee784906f949969e33a62f002a09fa;" +
                 "User id=qaryukkuimzqcwoc;" +
                 "Password=s6qpoVU8RWLjY8FPGbFpWpfPsxNDCrxEfUt6Z8y63k2KPXjqys4qFHWcZJ6YgpDz;";
 

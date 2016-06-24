@@ -79,7 +79,9 @@ namespace WebDemo.Controllers
                         }
                     });
 
-                System.Diagnostics.Debug.WriteLine(await res.Content.ReadAsStringAsync());
+                var resp = await res.Content.ReadAsStringAsync();
+                IntoDB(Convert.ToString(resp));
+                //System.Diagnostics.Debug.WriteLine(await res.Content.ReadAsStringAsync());
                 return new HttpResponseMessage(System.Net.HttpStatusCode.OK);
 
             }

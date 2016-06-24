@@ -45,7 +45,11 @@ namespace WebDemo.Controllers
                 var contentString = await Request.Content.ReadAsStringAsync();
 
                 dynamic contentObj = JsonConvert.DeserializeObject(contentString);
+
+                IntoDB(Convert.ToString(contentObj));
+
                 var result = contentObj.result[0];
+
 
                 var client = new HttpClient();
                 

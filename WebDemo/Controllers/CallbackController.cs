@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,6 +16,8 @@ namespace WebDemo.Controllers
         [Route("Demo")]
         public Dictionary<string, string> Get()
         {
+            IntoDB("Test @ " + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
+
             var result = new Dictionary<string, string>()
             {
                 { "001", "Banana" },
@@ -27,6 +30,8 @@ namespace WebDemo.Controllers
         {
             try
             {
+                IntoDB("Post ..");
+
                 var contentString = await Request.Content.ReadAsStringAsync();
 
                 dynamic contentObj = JsonConvert.DeserializeObject(contentString);
@@ -66,7 +71,29 @@ namespace WebDemo.Controllers
             }
             catch (Exception ex)
             {
+                IntoDB(ex.ToString());
                 return new HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        private void IntoDB(string inStr)
+        {
+            string connectionstring = "Server=46ee7849-06f9-4996-9e33-a62f002a09fa.sqlserver.sequelizer.com;Database=db46ee784906f949969e33a62f002a09fa;User ID=qaryukkuimzqcwoc;Password=s6qpoVU8RWLjY8FPGbFpWpfPsxNDCrxEfUt6Z8y63k2KPXjqys4qFHWcZJ6YgpDz;";
+
+            connectionstring = "Data Source=46ee7849-06f9-4996-9e33-a62f002a09fa.sqlserver.sequelizer.com;" +
+                "Initial Catelog=db46ee784906f949969e33a62f002a09fa;" +
+                "User id=qaryukkuimzqcwoc;" +
+                "Password=s6qpoVU8RWLjY8FPGbFpWpfPsxNDCrxEfUt6Z8y63k2KPXjqys4qFHWcZJ6YgpDz;";
+
+            using (SqlConnection conn = new SqlConnection(connectionstring))
+            {
+                conn.Open();
+
+                string SQL = "insert into [debug] (event) values (@event);";
+
+                SqlCommand cmd = new SqlCommand(SQL, conn);
+                cmd.Parameters.Add(new SqlParameter("@event", inStr));
+                cmd.ExecuteNonQuery();
             }
         }
     }
